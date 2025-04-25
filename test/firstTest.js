@@ -4,6 +4,7 @@ import {should} from "chai";
 // import {greet, process} from "../math/math.js";
 // import { isAdult } from "../math/math.js";
 import { process } from "../math/math.js";
+import { canDrive } from "../math/math.js";
 should()
 
 //testing
@@ -47,19 +48,40 @@ should()
 
 // Path Coverage
 
-describe("Path coverage", function() {
-    it("should return both x and y are positive", function() {
-        const result = process(5, 5);
-        result.should.equal("both x and y are positive");
-    });
+// describe("Path coverage", function() {
+//     it("should return both x and y are positive", function() {
+//         const result = process(5, 5);
+//         result.should.equal("both x and y are positive");
+//     });
 
-    it("should return x is positive", function() {
-        const result = process(5, -1);
-        result.should.equal("x is positive");
-    });
+//     it("should return x is positive", function() {
+//         const result = process(5, -1);
+//         result.should.equal("x is positive");
+//     });
 
-    it("should return x is not positive", function() {
-        const result = process(-3, 5);
-        result.should.equal("x is not positive");
-    });
-});
+//     it("should return x is not positive", function() {
+//         const result = process(-3, 5);
+//         result.should.equal("x is not positive");
+//     });
+// });
+
+//Condition Coverage
+
+describe("Condition Coverage", function(){
+    it("should return allowed to drive", function(){
+        const result = canDrive(19,true);
+        result.should.equal("allowed to drive");
+    })
+    it("should return not allowed to drive", function(){
+        const result = canDrive(19,false);
+        result.should.equal("not allowed to drive");
+    })
+    it("should return not allowed to drive", function(){
+        const result = canDrive(15,false);
+        result.should.equal("not allowed to drive");
+    })
+    it("should return not allowed to drive", function(){
+        const result = canDrive(12,true);
+        result.should.equal("not allowed to drive");
+    })
+})

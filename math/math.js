@@ -36,3 +36,11 @@ export function process(x,y) {
         return "x is not positive"
     }
 }
+
+export function canDrive(age, hasLicense) {
+    if(age >=18 && hasLicense) {
+        return "allowed to drive";
+    } else {
+        return "not allowed to drive";
+    }
+}
