@@ -5,6 +5,7 @@ import {should} from "chai";
 // import { isAdult } from "../math/math.js";
 import { process } from "../math/math.js";
 import { canDrive } from "../math/math.js";
+import { getUserById } from "../math/math.js";
 should()
 
 //testing
@@ -67,21 +68,38 @@ should()
 
 //Condition Coverage
 
-describe("Condition Coverage", function(){
-    it("should return allowed to drive", function(){
-        const result = canDrive(19,true);
-        result.should.equal("allowed to drive");
+// describe("Condition Coverage", function(){
+//     it("should return allowed to drive", function(){
+//         const result = canDrive(19,true);
+//         result.should.equal("allowed to drive");
+//     })
+//     it("should return not allowed to drive", function(){
+//         const result = canDrive(19,false);
+//         result.should.equal("not allowed to drive");
+//     })
+//     it("should return not allowed to drive", function(){
+//         const result = canDrive(15,false);
+//         result.should.equal("not allowed to drive");
+//     })
+//     it("should return not allowed to drive", function(){
+//         const result = canDrive(12,true);
+//         result.should.equal("not allowed to drive");
+//     })
+// })
+
+//Line Coverage
+
+describe("Line Coverage", function() {
+    it("should return user id found", function(){
+        const result = getUserById("123")
+        result.data.name.should.equal("Alice")
     })
-    it("should return not allowed to drive", function(){
-        const result = canDrive(19,false);
-        result.should.equal("not allowed to drive");
+    it("should return User id is required", function(){
+        const result = getUserById()
+        result.message.should.equal("User id is required")
     })
-    it("should return not allowed to drive", function(){
-        const result = canDrive(15,false);
-        result.should.equal("not allowed to drive");
-    })
-    it("should return not allowed to drive", function(){
-        const result = canDrive(12,true);
-        result.should.equal("not allowed to drive");
+    it("should return Not found", function(){
+        const result = getUserById("113")
+        result.message.should.equal("Not found")
     })
 })

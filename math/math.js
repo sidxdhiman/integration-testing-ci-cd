@@ -44,3 +44,13 @@ export function canDrive(age, hasLicense) {
         return "not allowed to drive";
     }
 }
+
+export function getUserById(userId){
+    if(!userId) {
+        return {status:400, message: "User id is required"}
+    }
+    if(userId == "123"){
+        return {status:200, data: {name:"Alice"}}
+    }
+    return {status:404, message:"Not found"}
+}
