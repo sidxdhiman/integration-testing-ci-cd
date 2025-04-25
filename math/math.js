@@ -12,3 +12,13 @@ export function getTotalPrice(price, taxRate) {
 export function greet(name) {
     return `Hi! ${name}`
 }
+
+//Branch Coverage example
+
+export function isAdult(age){
+    if(age>=18){
+        return "Adult";
+    } else {
+        return "Minor";
+    }
+}
